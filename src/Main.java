@@ -6,17 +6,25 @@ import java.util.*;
 
 public class Main{
     public static void main(String[] args) throws IOException {
-        Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        for(int i=N;i>0;i--) {
-            for(int j=i-1;j>0;j--){
-                System.out.print(" ");
-            }
-            for(int j=N-i+1;j>0;j--){
-                System.out.print("*");
-            }
-            System.out.println();
+        int H = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+
+        if(M>=45){
+            M = M-45;
         }
+        else{
+            if(H==0){
+                H = 23;
+                M += 15;
+            }
+            else{
+                H -= 1;
+                M += 15;
+            }
+        }
+        System.out.println(H + " " + M);
     }
 }
