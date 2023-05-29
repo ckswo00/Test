@@ -4,27 +4,20 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 import java.util.*;
 
+
 public class Main{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        int H = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        Integer[] arr = new Integer[10];
 
-        if(M>=45){
-            M = M-45;
+        for (int i=0;i<10;i++){
+            arr[i] = Integer.parseInt(br.readLine())%42;
         }
-        else{
-            if(H==0){
-                H = 23;
-                M += 15;
-            }
-            else{
-                H -= 1;
-                M += 15;
-            }
-        }
-        System.out.println(H + " " + M);
+
+        Set<Integer> set = new HashSet<Integer>(Arrays.asList(arr));
+
+        int n = set.size();
+        System.out.println(n);
     }
 }
