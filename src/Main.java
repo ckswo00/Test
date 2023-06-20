@@ -9,15 +9,28 @@ public class Main{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        Integer[] arr = new Integer[10];
+        StringBuilder sb = new StringBuilder();
+        int test = Integer.parseInt(br.readLine());
+        String arr[] = new String[test];
 
-        for (int i=0;i<10;i++){
-            arr[i] = Integer.parseInt(br.readLine())%42;
+        for(int i=0;i<test;i++){
+            arr[i] = br.readLine();
         }
 
-        Set<Integer> set = new HashSet<Integer>(Arrays.asList(arr));
+        for(int i=0;i<test;i++){
+            int cnt = 0;
+            int sum = 0;
 
-        int n = set.size();
-        System.out.println(n);
+            for(int j=0;j<arr[i].length();j++){
+                if(arr[i].charAt(j)=='O'){
+                    cnt++;
+                } else{
+                    cnt=0;
+                }
+                sum+=cnt;
+            }
+            sb.append(sum).append('\n');
+        }
+        System.out.print(sb);
     }
 }
