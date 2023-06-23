@@ -9,28 +9,20 @@ public class Main{
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        StringBuilder sb = new StringBuilder();
-        int test = Integer.parseInt(br.readLine());
-        String arr[] = new String[test];
+        String[] arr = br.readLine().split(" ");
 
-        for(int i=0;i<test;i++){
-            arr[i] = br.readLine();
-        }
+        String result = "";
 
-        for(int i=0;i<test;i++){
-            int cnt = 0;
-            int sum = 0;
-
-            for(int j=0;j<arr[i].length();j++){
-                if(arr[i].charAt(j)=='O'){
-                    cnt++;
-                } else{
-                    cnt=0;
-                }
-                sum+=cnt;
+        for(int i=0;i<arr.length-1;i++){
+            if(Integer.parseInt(arr[i])==Integer.parseInt(arr[i+1])-1){
+                result = "ascending";
+            } else if (Integer.parseInt(arr[i])==Integer.parseInt(arr[i+1])+1) {
+                result = "descending";
+            } else {
+                result = "mixed";
+                break;
             }
-            sb.append(sum).append('\n');
         }
-        System.out.print(sb);
+        System.out.print(result);
     }
 }
